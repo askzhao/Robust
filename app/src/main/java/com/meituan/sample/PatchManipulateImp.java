@@ -83,13 +83,14 @@ public class PatchManipulateImp extends PatchManipulate {
         try {
             copy(patch.getLocalPath(), patch.getTempPath());
         }catch (Exception e){
-            e.printStackTrace();
+            e.printStackTrace(System.out);
             throw new RuntimeException("copy source patch to local patch error, no patch execute in path "+patch.getTempPath());
         }
 
         return true;
     }
     public void copy(String srcPath,String dstPath) throws IOException {
+        System.out.println(srcPath);
         File src=new File(srcPath);
         if(!src.exists()){
             throw new RuntimeException("source patch does not exist ");
